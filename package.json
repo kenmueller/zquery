@@ -1,0 +1,17 @@
+{
+	"name": "zquery",
+	"version": "1.0.0",
+	"main": "lib/index.js",
+	"scripts": {
+		"build": "tsc",
+		"watch": "tsc -w",
+		"test": "jest --verbose tests",
+		"prepublishOnly": "npm test"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"jest": "^26.0.1",
+		"tslint": "^6.1.2",
+		"typescript": "^3.9.5"
+	}
+}
