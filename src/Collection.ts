@@ -35,4 +35,14 @@ export default class Collection {
 					error => error ? reject(error) : resolve()
 				)
 			)
+	
+	/**
+	 * @returns A promise containing a list of documents contained in the collection.
+	 * 
+	 * The data for each document should be pre-loaded.
+	 */
+	get = () => {
+		// TODO: Fill this out
+		return Promise.resolve([] as Document[])
+	}
 }
