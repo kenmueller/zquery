@@ -8,8 +8,11 @@
 		"test": "jest --verbose tests",
 		"prepublishOnly": "npm test"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"sqlite3": "^4.2.0"
+	},
 	"devDependencies": {
+		"@types/sqlite3": "^3.1.6",
 		"jest": "^26.0.1",
 		"tslint": "^6.1.2",
 		"typescript": "^3.9.5"
