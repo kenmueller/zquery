@@ -3,7 +3,7 @@ import Collection from './Collection'
 
 export default class Document {
 	/** Cached data */
-	_data?: Record<string, any>
+	_data: Record<string, any> | null = null
 	
 	id: string
 	pathParts: string[]
@@ -28,8 +28,16 @@ export default class Document {
 		
 		await this.parentCollection.createTableIfNeeded()
 		
-		// TODO: Select this document from the parent collection's table
-		return {}
+		const data: Record<string, any> | undefined =
+			await new Promise((resolve, reject) =>
+				this.parent.db.get(
+					`SELECT * FROM ${this.parentCollection.hash} WHERE id = $id`,
+					{ $id: this.id },
+					(error, row) => error ? reject(error) : resolve(row)
+				)
+			)
+		
+		return this._data = data ?? null
 	}
 	
 	/** Sets the data for this document, and returns a Promise */

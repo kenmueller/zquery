@@ -21,7 +21,8 @@ export default class Collection {
 	
 	get hash() {
 		return this._hash ?? (
-			this._hash = createHash(this.path)
+			// Prepend an underscore since table names can't start with a number
+			this._hash = `_${createHash(this.path)}`
 		)
 	}
 	
