@@ -42,7 +42,7 @@ export default class Collection {
 	 * 
 	 * The data for each document should be pre-loaded.
 	 */
-	get = () => {
+	documents = () => {
 		// TODO: Fill this out
 		return Promise.resolve([] as Document[])
 	}
